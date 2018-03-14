@@ -70,6 +70,12 @@ buildchecks: ## Pre-build checks
 	@echo "Checking project is in GOPATH"
 	@(env bash scripts/checkgopath.sh)
 
+.PHONY: build
+build: deps ## Build a binary
+	@echo "==> Building project..."
+	@dep ensure # install the project's dependencies
+	@go build
+
 .PHONY: clean
 clean: GOPATH=$(shell go env GOPATH)
 clean: ## Remove build artifacts
