@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 _init() {
+    PACKAGE="github.com/zbiljic/docker-prompt"
+
     ##
     ## IMPORTANT: DO NOT change order
     ##
@@ -12,10 +14,10 @@ _init() {
 
 main() {
     ld_flags_str="-s -w"
-    ld_flags_str="$ld_flags_str -X github.com/zbiljic/docker-prompt/cmd.Version=$_version"
-    ld_flags_str="$ld_flags_str -X github.com/zbiljic/docker-prompt/cmd.BuildTime=$_build_time"
-    ld_flags_str="$ld_flags_str -X github.com/zbiljic/docker-prompt/cmd.CommitID=$_commit_id"
-    ld_flags_str="$ld_flags_str -X github.com/zbiljic/docker-prompt/cmd.ShortCommitID=$_short_commit_id"
+    ld_flags_str="$ld_flags_str -X ${PACKAGE}/cmd.Version=$_version"
+    ld_flags_str="$ld_flags_str -X ${PACKAGE}/cmd.BuildTime=$_build_time"
+    ld_flags_str="$ld_flags_str -X ${PACKAGE}/cmd.CommitID=$_commit_id"
+    ld_flags_str="$ld_flags_str -X ${PACKAGE}/cmd.ShortCommitID=$_short_commit_id"
     echo "$ld_flags_str"
 }
 
