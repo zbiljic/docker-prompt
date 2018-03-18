@@ -7,6 +7,6 @@ var (
 	BuildTime = "DEVELOPMENT.GOGET"
 	// CommitID - latest commit id.
 	CommitID = "DEVELOPMENT.GOGET"
-	// ShortCommitID - first 12 characters from CommitID.
-	ShortCommitID = CommitID[:12]
+	// ShortCommitID - first 7 characters from CommitID.
+	ShortCommitID = CommitID[:7]
 )

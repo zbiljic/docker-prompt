@@ -2,6 +2,8 @@ SHELL = bash
 PROJECT_ROOT := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 THIS_OS := $(shell uname)
 
+LDFLAGS := $(shell scripts/gen-ldflags.sh)
+
 default: help
 
 # Only for Travis CI compliance
@@ -74,7 +76,7 @@ buildchecks: ## Pre-build checks
 build: deps ## Build a binary
 	@echo "==> Building project..."
 	@dep ensure # install the project's dependencies
-	@go build
+	@go build --ldflags "$(LDFLAGS)"
 
 .PHONY: clean
 clean: GOPATH=$(shell go env GOPATH)
